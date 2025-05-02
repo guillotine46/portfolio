@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarcasm Detection using NLP - Diksha Krishnan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Add your project page specific CSS file -->
+    <link rel="stylesheet" href="sarcasm-detection-style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="navbar-wrapper">
+                <a href="index.html" class="back-button">Back to Portfolio</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="sarcasm-detection.html#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sarcasm-detection.html#challenge">Challenge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sarcasm-detection.html#approach">Approach</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sarcasm-detection.html#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sarcasm-detection.html#tech">Technologies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sarcasm-detection.html#links">Links</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="project-page">
+        <div class="project-header">
+            <h1>Sarcasm Detection using NLP</h1>
+            <div class="project-tags">
+                <span>Python</span>
+                <span>NLP</span>
+                <span>Machine Learning</span>
+            </div>
+        </div>
+        
+        <div class="project-content">
+            <section id="overview" class="project-overview">
+                <h2>Project Overview</h2>
+                <p>
+                    A research paper published at SemEval 2022 that explores sarcasm detection in text 
+                    using Natural Language Processing techniques. This project addresses the challenge of 
+                    identifying sarcastic statements in digital communication, which is crucial for 
+                    sentiment analysis and content moderation.
+                </p>
+            </section>
+            
+            <section id="challenge" class="project-challenge">
+                <h2>The Challenge</h2>
+                <p>
+                    Sarcasm is characterized by the use of words that mean the opposite of what the speaker
+                    intends. This poses a significant challenge for automated systems attempting to understand
+                    user sentiment in text. Traditional sentiment analysis often misinterprets sarcastic statements,
+                    leading to incorrect conclusions about user intent.
+                </p>
+            </section>
+            
+            <section id="approach" class="project-solution">
+                <h2>Our Approach</h2>
+                <p>
+                    We developed a hybrid model combining BERT-based contextual embeddings with linguistic feature engineering to capture both semantic meaning and sarcasm markers.
+                </p>
+                <ul>
+                    <li>Fine-tuned BERT models to understand contextual meaning</li>
+                    <li>Implemented attention mechanisms to focus on contextual incongruity</li>
+                    <li>Extracted linguistic features specific to sarcastic expressions</li>
+                    <li>Developed an ensemble approach combining deep learning with traditional NLP techniques</li>
+                </ul>
+                
+                <div class="code-block">
+                    <pre>
+# Sample code snippet showing our model architecture
+class SarcasmDetector(nn.Module):
+    def __init__(self, bert_model_name, hidden_dim=768):
+        super(SarcasmDetector, self).__init__()
+        self.bert = BertModel.from_pretrained(bert_model_name)
+        self.dropout = nn.Dropout(0.1)
+        self.attention = SelfAttention(hidden_dim)
+        self.classifier = nn.Linear(hidden_dim, 2)  # Binary classification
+        
+    def forward(self, input_ids, attention_mask):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        sequence_output = outputs[0]
+        
+        # Apply self-attention to focus on important parts
+        context_vector, attention_weights = self.attention(sequence_output, attention_mask)
+        
+        # Final classification
+        pooled_output = self.dropout(context_vector)
+        logits = self.classifier(pooled_output)
+        return logits, attention_weights</pre>
+                </div>
+            </section>
+            
+            <section id="results" class="project-results">
+                <h2>Results</h2>
+                <p>
+                    Our model achieved state-of-the-art performance on the SemEval 2022 benchmark, demonstrating the effectiveness of our hybrid approach.
+                </p>
+                
+                <div class="results-container">
+                    <div class="result-card">
+                        <div class="result-value">0.82</div>
+                        <div class="result-label">F1 Score</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">0.79</div>
+                        <div class="result-label">Precision</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">0.85</div>
+                        <div class="result-label">Recall</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">7th</div>
+                        <div class="result-label">Rank at SemEval</div>
+                    </div>
+                </div>
+                
+                <p>
+                    Our analysis revealed that the model was particularly effective at identifying sarcasm in longer contexts where sufficient linguistic cues were present, but struggled with very short or ambiguous statements.
+                </p>
+            </section>
+            
+            <section id="tech" class="project-technologies">
+                <h2>Technologies Used</h2>
+                <ul>
+                    <li>Python for implementation</li>
+                    <li>PyTorch for deep learning model development</li>
+                    <li>Hugging Face Transformers for BERT implementation</li>
+                    <li>NLTK and spaCy for linguistic feature extraction</li>
+                    <li>Scikit-learn for evaluation metrics</li>
+                    <li>Pandas and NumPy for data processing</li>
+                </ul>
+            </section>
+            
+            <section id="links" class="project-links-section" style="margin-top: 3px;">
+                <h2>Project Links</h2>
+                <div class="project-links-buttons">
+                    <a href="https://github.com/guillotine46/sarcasm-detection-semeval2022.git" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="https://aclanthology.org/2022.semeval-1.114/" target="_blank">
+                        <i class="fas fa-file-alt"></i> Published Paper
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Diksha Krishnan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

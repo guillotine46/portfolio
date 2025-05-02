@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Detection using CNN - Diksha Krishnan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sarcasm-detection-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="navbar-wrapper">
+                <a href="index.html/#projects" class="back-button">Back to Portfolio</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#challenge">Challenge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#approach">Approach</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-page">
+        <div class="project-header">
+            <h1>Skin Disease Detection using CNN</h1>
+            <div class="project-tags">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>Deep Learning</span>
+                <span>EfficientNet</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <section id="overview">
+                <h2>Project Overview</h2>
+                <p>This project aims to develop an automated CNN-based system that can accurately diagnose various skin diseases using image inputs. The system leverages EfficientNetB2, data augmentation techniques, and transfer learning to classify skin lesions into 10 distinct categories with over 83% accuracy.</p>
+            </section>
+
+            <section id="challenge">
+                <h2>The Challenge</h2>
+                <p>Skin diseases contribute significantly to global disease burden. Accurate diagnosis is critical, yet traditional methods are subjective and slow. Existing ML-based systems are often limited by poor accuracy and usability. Our system seeks to overcome these limitations with a CNN-based approach.</p>
+            </section>
+
+            <section id="approach">
+                <h2>Our Approach</h2>
+                <ul>
+                    <li>Preprocessed image data with resizing, normalization, and cleaning</li>
+                    <li>Augmented data using rotation, flipping, brightness adjustment</li>
+                    <li>Used EfficientNetB2 model with fine-tuned hyperparameters</li>
+                    <li>Trained on a balanced dataset of 10 skin disease classes</li>
+                    <li>Applied dropout and early stopping to prevent overfitting</li>
+                </ul>
+            </section>
+
+            <section id="results">
+                <h2>Results</h2>
+            
+                <div class="project-banner" style="margin-bottom: 30px;">
+                    <img src="images/skin-disease-results.png" alt="Skin-Disease-Results"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/600x300?text=Results+Visualization'">
+                </div>
+            
+                <div class="results-container">
+                    <div class="result-card">
+                        <div class="result-value">83.84%</div>
+                        <div class="result-label">Accuracy</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">High</div>
+                        <div class="result-label">Precision</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">Robust</div>
+                        <div class="result-label">Recall</div>
+                    </div>
+                </div>
+            
+                <p>The system outperformed many traditional approaches and provides real-time skin condition predictions with impressive reliability.</p>
+            </section>
+
+            <section id="links" class="project-links-section" style="margin-top: -5px;">
+                <h2>Project Links</h2>
+                <div class="project-links-buttons">
+                    <a href="https://github.com/guillotine46/skin-disease-detection-cnn.git" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    <a href="https://colab.research.google.com/drive/1YMCm2LIgpLcLAyPLsja22uMq7tLw8t1A?usp=sharingt" target="_blank"><i class="fas fa-code"></i>Colab Code</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Diksha Krishnan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
