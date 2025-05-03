@@ -10,6 +10,10 @@
     --border-color: #ddd;
     --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+
+    html {
+        color-scheme: only light;
+    }
 }
 
 * {
@@ -276,19 +280,38 @@ img {
 }
 
 .typewriter {
-    border-right: 2px solid var(--secondary-color);
+    /* border-right: 2px solid var(--secondary-color); */
     white-space: nowrap;
     letter-spacing: 0.05em;
     display: inline-block;
     font-size: 1.8rem;
     font-weight: 500;
     opacity: 0.9;
+    /* animation: blink-caret 0.75s step-end infinite; */
+  }
+
+  .typewriter-text {
+    position: relative;
+  }
+  
+  .typewriter-text::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--secondary-color);
     animation: blink-caret 0.75s step-end infinite;
   }
   
   @keyframes blink-caret {
-    0%, 100% { border-color: transparent }
-    50% { border-color: var(--secondary-color) }
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
 /* =========== ABOUT SECTION =========== */
@@ -603,6 +626,47 @@ img {
 .project-links a:hover {
     color: var(--secondary-color);
 }
+
+/* Base button style adjustment */
+.project-links .btn-primary {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  /* Medium screens */
+  @media (max-width: 768px) {
+    .project-links .btn-primary {
+      padding: 7px 18px;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* Small screens */
+  @media (max-width: 576px) {
+    .project-links .btn-primary {
+      padding: 6px 15px;
+      font-size: 0.8rem;
+      min-width: 0;
+      width: auto;
+    }
+    
+    /* Adjust the container of the button */
+    .project-links {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  
+  /* Very small screens */
+  @media (max-width: 425px) {
+    .project-links .btn-primary {
+      padding: 5px 12px;
+      font-size: 0.75rem;
+    }
+  }  
 
 /* Featured Project Styling */
 .featured-project {
@@ -1001,3 +1065,321 @@ textarea.form-control {
     background-color: var(--secondary-color);
     transform: translateY(-5px);
   }
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .container {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 425px) {
+    .typewriter {
+        white-space: normal;
+        font-size: 1rem;
+        border-right: none;
+    }
+
+    @keyframes blink-caret {
+        0%, 100%, 50% { border-color: transparent }
+    }
+
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Add a bit more breathing room for the hero content */
+  .hero-content {
+    padding: 0 5px;
+  }
+  
+  /* Ensure the hero section doesn't cause horizontal overflow */
+  .hero-section {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Make sure the row doesn't create overflow */
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* Adjust columns to not overflow */
+  [class*="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .hero-content h2 {
+      font-size: 1.1rem;
+    }
+    
+    .hero-content p {
+      font-size: 0.9rem;
+    }
+    
+    .hero-buttons .btn {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Fix any potential padding issues in sections */
+  .section-padding {
+    padding: 60px 10px;
+  }
+  
+  /* Ensure timeline doesn't overflow */
+  .timeline::after {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    padding-left: 50px;
+  }
+  
+  .timeline-dot {
+    left: 11px;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 11px;
+  }
+  
+  /* Make sure project items fit on small screens */
+  .project-image img {
+    height: auto;
+  }
+}
+
+html, body {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    color-scheme: only light;
+  }
+
+/* Remove lingering tap highlight on mobile */
+* {
+    -webkit-tap-highlight-color: transparent; /* iOS Safari */
+    -webkit-touch-callout: none;              /* iOS Safari */
+    -moz-user-select: none;                   /* Firefox */
+    -ms-user-select: none;                    /* IE/Edge */
+    user-select: none;                        /* Standard */
+    touch-action: manipulation;               /* Chrome/Edge/Samsung */
+  }
+  
+  /* Force links and buttons to visually reset */
+  a:focus,
+  button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 1142px) {
+    /* Adjust the education section layout */
+    #education .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    /* Make all cards same width on medium screens */
+    #education .col-md-6 {
+      width: 48%;
+      flex: 0 0 48%;
+      max-width: 48%;
+    }
+    
+    /* Special handling for the third card (certification) */
+    #education .col-md-6:nth-child(3) {
+      width: 48%;
+      margin-top: 25px;
+      margin-left: 0;
+    }
+    
+    /* Make education items consistent height */
+    .education-item {
+      height: 100%;
+      min-height: 180px;
+    }
+  }
+
+  /* Add this to your style.css file */
+@media (max-height: 500px) and (orientation: landscape) {
+    /* Navbar styles for landscape orientation */
+    .main-navbar {
+      padding: 5px 0;
+    }
+    
+    .nav-container {
+      padding: 5px 20px;
+    }
+    
+    .nav-menu {
+      gap: 20px;
+      padding: 5px;
+    }
+    
+    /* When menu is open on mobile in landscape, make it scrollable */
+    .nav-menu.active {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    /* Ensure the logo stays visible */
+    .logo {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* Add this to your style.css file */
+
+/* Desktop specific layout fixes */
+@media (min-width: 1143px) {
+    /* Ensure nav container stays centered */
+    .nav-container {
+      padding: 15px 30px;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+    
+    /* Hero content positioning */
+    .hero-content {
+      padding-left: 20px;
+    }
+    
+    /* Ensure hero section is properly centered */
+    .hero-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Ensure proper spacing for all section containers */
+    .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Add a specific fix for large desktop screens */
+  @media (min-width: 1400px) {
+    .hero-content {
+      padding-left: 50px;
+    }
+  }
+
+/* Fix for typewriter text overflow between 992px and 1103px */
+@media (min-width: 992px) and (max-width: 1103px) {
+    .typewriter {
+      font-size: 1.5rem;
+      white-space: normal;
+      max-width: 100%;
+    }
+  
+    .typewriter-text {
+      position: relative;
+    }
+  
+    .typewriter-text::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      bottom: 0;
+      width: 2px;
+      height: 1.2em;
+      background-color: var(--secondary-color);
+      animation: blink-caret 0.75s step-end infinite;
+    }
+  
+    @keyframes blink-caret {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  }
+  
+  /* Standard navbar behavior (previously only for < 768px) */
+@media (max-width: 917px) {
+    .hamburger {
+      display: block;
+    }
+    
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      background-color: var(--dark-color);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 10px 30px 20px;
+      margin: 0;
+      gap: 20px;
+    }
+    
+    .nav-menu.active {
+      display: flex;
+    }
+    
+    .nav-link {
+      padding: 10px 10px;
+    }
+  }
+  
+  /* Adjust hero content to realign after changing breakpoints */
+  @media (min-width: 918px) {
+    .nav-menu {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .hamburger {
+      display: none;
+    }
+    
+    .hero-content {
+      padding-left: 40px;
+    }
+    
+    .hero-section {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+  #projects .row .col-md-6:nth-child(3) {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 918px) and (max-width: 991px) {
+    .hero-content {
+      text-align: center;
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 90%;
+    }
+  
+    .hero-content p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
