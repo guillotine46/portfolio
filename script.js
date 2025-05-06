@@ -161,7 +161,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // =============== TYPING ANIMATION ===============
 const typingTextSpan = document.querySelector('.typewriter-text');
-const originalText = "DevOps Engineer & ML Enthusiast";
+const originalText = "Inclusive UX Designer & Creator";
 
 let i = 0;
 function typeWriter() {
